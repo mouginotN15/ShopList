@@ -64,3 +64,22 @@ D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.UI\obj\Debug\netstandard2.0\V
 D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.csproj.CoreCompileInputs.cache
 D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.UI\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.UI\obj\Debug\netstandard2.0\Views\EditItemView.xaml.g.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\bin\Debug\netstandard2.0\TipCalc.Forms.UI.deps.json
+D:\GitHub\ShopList\TipCalc.Forms.UI\bin\Debug\netstandard2.0\TipCalc.Forms.UI.dll
+D:\GitHub\ShopList\TipCalc.Forms.UI\bin\Debug\netstandard2.0\TipCalc.Forms.UI.pdb
+D:\GitHub\ShopList\TipCalc.Forms.UI\bin\Debug\netstandard2.0\TipCalc.Core.dll
+D:\GitHub\ShopList\TipCalc.Forms.UI\bin\Debug\netstandard2.0\TipCalc.Core.pdb
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.csprojAssemblyReference.cache
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\FormsApp.xaml.g.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\Views\EditItemView.xaml.g.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\Views\ListView.xaml.g.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\Views\LoginView.xaml.g.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\Views\RegisterView.xaml.g.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\Views\SelectedListView.xaml.g.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.csproj.CoreCompileInputs.cache
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.AssemblyInfoInputs.cache
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.AssemblyInfo.cs
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\XamlC.stamp
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.csproj.CopyComplete
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.dll
+D:\GitHub\ShopList\TipCalc.Forms.UI\obj\Debug\netstandard2.0\TipCalc.Forms.UI.pdb

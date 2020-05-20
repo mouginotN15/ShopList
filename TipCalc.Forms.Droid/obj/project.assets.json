@@ -2622,11 +2622,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.Droid\\TipCalc.Forms.Droid.csproj",
+      "projectUniqueName": "D:\\GitHub\\ShopList\\TipCalc.Forms.Droid\\TipCalc.Forms.Droid.csproj",
       "projectName": "TipCalc.Forms.Droid",
-      "projectPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.Droid\\TipCalc.Forms.Droid.csproj",
+      "projectPath": "D:\\GitHub\\ShopList\\TipCalc.Forms.Droid\\TipCalc.Forms.Droid.csproj",
       "packagesPath": "C:\\Users\\Erekim\\.nuget\\packages\\",
-      "outputPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.Droid\\obj\\",
+      "outputPath": "D:\\GitHub\\ShopList\\TipCalc.Forms.Droid\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2647,11 +2647,11 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj": {
-              "projectPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj"
+            "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj": {
+              "projectPath": "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj"
             },
-            "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj": {
-              "projectPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj"
+            "D:\\GitHub\\ShopList\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj": {
+              "projectPath": "D:\\GitHub\\ShopList\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj"
             }
           }
         }

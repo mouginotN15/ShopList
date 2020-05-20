@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9Yp434Jv+cXRddwWf8grVa7B3/BAsUQ4210SkNcadI4YAzEFzixIR+F31j2nFs2+TIODWu8q9KOivF8tQGXVlQ==",
+  "dgSpecHash": "Z0UueRsm2PCnXGsxVXYr/7ThHcVeJ3CVZS1Nh43QIV91LE+TlmOqDkhF6VwVp1nGRE3LQ2pjupK4jXT8y2cSdQ==",
   "success": true,
-  "projectFilePath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.Droid\\TipCalc.Forms.Droid.csproj",
+  "projectFilePath": "D:\\GitHub\\ShopList\\TipCalc.Forms.Droid\\TipCalc.Forms.Droid.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Erekim\\.nuget\\packages\\dynamicdata\\6.14.18\\dynamicdata.6.14.18.nupkg.sha512",
     "C:\\Users\\Erekim\\.nuget\\packages\\mvvmcross\\6.4.2\\mvvmcross.6.4.2.nupkg.sha512",

@@ -104,12 +104,8 @@ namespace TipCalc.Core.ViewModels
                     ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
                     break;
 
-                // Tri personnel enregistré en mémoire tel.
-                case 1:
-                    break;
-
                 // Tri par catégorie et par ordre alphabetique.
-                case 2:
+                case 1:
 
                     //var Comparer1 = SortExpressionComparer<ShopItem>.Descending(Si => Si.Checked).ThenByAscending(Si => Si.Name);
                     //var propertyChanged = SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Select(_ => System.Reactive.Unit.Default);
@@ -118,10 +114,6 @@ namespace TipCalc.Core.ViewModels
                     //ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
 
 
-                    break;
-
-                // Tri  par catégorie et personnel enregistré en mémoire tel.
-                case 3:
                     break;
 
             }

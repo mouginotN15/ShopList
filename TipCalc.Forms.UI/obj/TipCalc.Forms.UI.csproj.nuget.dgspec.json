@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj": {}
+    "D:\\GitHub\\ShopList\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj": {}
   },
   "projects": {
-    "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj": {
+    "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj",
+        "projectUniqueName": "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj",
         "projectName": "TipCalc.Core",
-        "projectPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj",
+        "projectPath": "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj",
         "packagesPath": "C:\\Users\\Erekim\\.nuget\\packages\\",
-        "outputPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\obj\\",
+        "outputPath": "D:\\GitHub\\ShopList\\TipCalc.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -80,14 +80,14 @@
         }
       }
     },
-    "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj": {
+    "D:\\GitHub\\ShopList\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj",
+        "projectUniqueName": "D:\\GitHub\\ShopList\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj",
         "projectName": "TipCalc.Forms.UI",
-        "projectPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj",
+        "projectPath": "D:\\GitHub\\ShopList\\TipCalc.Forms.UI\\TipCalc.Forms.UI.csproj",
         "packagesPath": "C:\\Users\\Erekim\\.nuget\\packages\\",
-        "outputPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Forms.UI\\obj\\",
+        "outputPath": "D:\\GitHub\\ShopList\\TipCalc.Forms.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -108,8 +108,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj": {
-                "projectPath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj"
+              "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj": {
+                "projectPath": "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8ffKBO0ytU/3bpfcJxNp7jIPi6NtxqvoCUGJpyPJS/e/PHqEWf9bGojtnkKddW2tSqW2AjPrtqLvj7IdxOjCIA==",
+  "dgSpecHash": "iN3jM5svcMbgPrWd+DG4TLwGkYtlP1qq06zQbNjE+p4Cy+/VcRntpaVEep/9FEw3M0yQYM273UTuTFfwjFoUOw==",
   "success": true,
-  "projectFilePath": "D:\\Projet Personnel\\ProjetShopListV1\\TipCalc.Core\\TipCalc.Core.csproj",
+  "projectFilePath": "D:\\GitHub\\ShopList\\TipCalc.Core\\TipCalc.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Erekim\\.nuget\\packages\\dynamicdata\\6.14.18\\dynamicdata.6.14.18.nupkg.sha512",
     "C:\\Users\\Erekim\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
