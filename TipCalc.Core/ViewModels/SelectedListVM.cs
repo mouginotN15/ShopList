@@ -10,11 +10,13 @@ using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TipCalc.Core.Model;
 using TipCalc.Core.Services;
+using System.Reactive;
 
 namespace TipCalc.Core.ViewModels
 {
@@ -30,6 +32,14 @@ namespace TipCalc.Core.ViewModels
 
         // Permet de faire les appels API.
         public API Api = new API();
+
+        //Comparers
+        SortExpressionComparer<ShopItem> ComparerAtoZ;
+        SortExpressionComparer<ShopItem> ComparerZtoA;
+        SortExpressionComparer<ShopItem> ComparerAtoZwithTags;
+        SortExpressionComparer<ShopItem> ComparerZtoAwithTags;
+        BehaviorSubject<SortExpressionComparer<ShopItem>> observableComparer;
+        
 
         public SelectedListVM(IMvxNavigationService navigationService)
         {
@@ -53,17 +63,32 @@ namespace TipCalc.Core.ViewModels
             ListSort = new List<string>
             {
                 "A - Z",
-                "Personal sort",
+                "Z - A",
                 "Tag : A - Z",
-                "Tag : Personal sort"
+                "Tag : Z - A"
             };
 
+            // Comparer initialize
+            ComparerAtoZ = SortExpressionComparer<ShopItem>.Descending(Si => Si.Checked).ThenByAscending(Si => Si.Name);
+            ComparerZtoA = SortExpressionComparer<ShopItem>.Descending(Si => Si.Checked).ThenByDescending(Si => Si.Name);
+            // ComparerAtoZwithTags
+            // ComparerZtoAwithTags
+
+            observableComparer = new BehaviorSubject<SortExpressionComparer<ShopItem>>(ComparerAtoZ);      
+
+            // Charge les shopItems de la shoplist dans SourceListShopItem
             SourceListShopItem = new SourceList<ShopItem>();
             await LoadItems();
 
+
+            var propertyChanged = SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Select(_ => Unit.Default);
+            ListShopItemSort = SourceListShopItem.Connect().Sort(ComparerAtoZ, resort: propertyChanged, comparerChanged: observableComparer).AsObservableList();
+            ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
+
+
             // Premier tri de la liste par ordre alaphabetique
             SelectedSort = "0";
-            SortChanged();
+            this.WhenPropertyChanged(x => x.SelectedSort).Subscribe((x) => SortChanged());
         }
 
         /// <summary>
@@ -92,30 +117,29 @@ namespace TipCalc.Core.ViewModels
         public void SortChanged()
         {
             int intSortType = Convert.ToInt32(SelectedSort);
+            Console.WriteLine(SelectedSort);
 
             switch (intSortType)
             {
                 // Tri par ordre alphabetique.
                 case 0:
-                    var Comparer1 = SortExpressionComparer<ShopItem>.Descending(Si => Si.Checked).ThenByAscending(Si => Si.Name);
-                    var propertyChanged = SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Select(_ => System.Reactive.Unit.Default);
+                    observableComparer.OnNext(ComparerAtoZ);
+                    break;
 
-                    ListShopItemSort = SourceListShopItem.Connect().Sort(Comparer1, resort: propertyChanged).AsObservableList();
-                    ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
+                // Tri par ordre alphabetique inversé.
+                case 1:
+                    observableComparer.OnNext(ComparerZtoA);
                     break;
 
                 // Tri par catégorie et par ordre alphabetique.
-                case 1:
-
-                    //var Comparer1 = SortExpressionComparer<ShopItem>.Descending(Si => Si.Checked).ThenByAscending(Si => Si.Name);
-                    //var propertyChanged = SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Select(_ => System.Reactive.Unit.Default);
-
-                    //ListShopItemSort = SourceListShopItem.Connect().Sort(Comparer1, resort: propertyChanged).AsObservableList();
-                    //ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
-
-
+                case 2:
+                    observableComparer.OnNext(ComparerAtoZwithTags);
                     break;
 
+                // Tri par catégorie et par ordre alphabetique inversé.
+                case 3:
+                    observableComparer.OnNext(ComparerZtoAwithTags);
+                    break;
             }
         }
 
