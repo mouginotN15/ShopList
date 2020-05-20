@@ -1,0 +1,59 @@
+@string/appbar_scrolling_view_behavior;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\flyoutcontent.xml
+@string/appbar_scrolling_view_behavior;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\rootlayout.xml
+adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
+adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+alpha;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\enterfromleft.xml
+alpha;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\exittoleft.xml
+android.support.design.widget.AppBarLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\flyoutcontent.xml
+android.support.design.widget.AppBarLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\rootlayout.xml
+android.support.design.widget.AppBarLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\shellcontent.xml
+android.support.design.widget.BottomNavigationView;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\bottomtablayout.xml
+android.support.design.widget.CoordinatorLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\flyoutcontent.xml
+android.support.design.widget.CoordinatorLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\rootlayout.xml
+android.support.design.widget.CoordinatorLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\shellcontent.xml
+android.support.design.widget.TabLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\rootlayout.xml
+android.support.design.widget.TabLayout;obj\Debug\90\res\layout\tabbar.xml
+android.support.v7.widget.RecyclerView;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\flyoutcontent.xml
+android.support.v7.widget.Toolbar;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\rootlayout.xml
+android.support.v7.widget.Toolbar;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\shellcontent.xml
+android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
+attr;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\1\jl\res\values\mvxbindingattributes.xml
+background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
+background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+cache-path;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+color;obj\Debug\90\res\values\colors.xml
+color;obj\Debug\90\res\values\ic_launcher_background.xml
+declare-styleable;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\1\jl\res\values\mvxbindingattributes.xml
+external-cache-path;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
+foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+FrameLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\bottomtablayout.xml
+item;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\1\jl\res\values\ids.xml
+item;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\1\jl\res\values\mvxbindingattributes.xml
+item;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\values\styles.xml
+item;obj\Debug\90\res\values\styles.xml
+LinearLayout;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\bottomtablayout.xml
+paths;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+resources;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\1\jl\res\values\ids.xml
+resources;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\1\jl\res\values\mvxbindingattributes.xml
+resources;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\3\jl\res\values\strings.xml
+resources;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\values\styles.xml
+resources;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\5\jl\res\xml\empty.xml
+resources;obj\Debug\90\res\values\colors.xml
+resources;obj\Debug\90\res\values\ic_launcher_background.xml
+resources;obj\Debug\90\res\values\strings.xml
+resources;obj\Debug\90\res\values\styles.xml
+set;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\enterfromleft.xml
+set;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\enterfromright.xml
+set;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\exittoleft.xml
+set;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\exittoright.xml
+string;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\3\jl\res\values\strings.xml
+string;obj\Debug\90\res\values\strings.xml
+style;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\values\styles.xml
+style;obj\Debug\90\res\values\styles.xml
+translate;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\enterfromleft.xml
+translate;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\enterfromright.xml
+translate;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\exittoleft.xml
+translate;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\anim\exittoright.xml
+xamarin.forms.platform.android.appcompat.FormsViewPager;D:\Projet Personnel\ProjetShopListV1\TipCalc.Forms.Droid\obj\Debug\90\lp\47\jl\res\layout\rootlayout.xml

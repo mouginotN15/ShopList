@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:SelectedListVM"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+    xmlns:viewModels="clr-namespace:TipCalc.Core.ViewModels;assembly=TipCalc.Core"
+    x:Class="TipCalc.Forms.UI.Views.SelectedListView"
+    mvx:Bi.nd="Title PageTitle"
+    x:Name="SelectedListViewPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_help.png" />
+        <ToolbarItem IconImageSource="iconAddRight.png" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Sort : " VerticalOptions="Center" />
+                <Picker SelectedIndex="{Binding SelectedSort}" ItemsSource="{Binding ListSort}" Title="Sort order" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+
+            <!-- Affichage de ShopItem de la ShopList selectionné.  -->
+            <CollectionView ItemsSource="{Binding DisplayedListShopItemSort}" IsGrouped="False">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <CheckBox  IsChecked="{Binding Checked}" />
+                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
+                            <Entry Text="{Binding Price}" Keyboard="Numeric" HorizontalTextAlignment="Center" WidthRequest="40"/>
+                            <ImageButton BackgroundColor="Transparent" Grid.Column="2" Source="ic_edit.png" HeightRequest="40" Padding="7" Command="{Binding DataContext.NavToItemEditCommand, Source={x:Reference SelectedListViewPage}}" CommandParameter="{Binding Id}" />
+                            <ImageButton BackgroundColor="Transparent" Grid.Column="3" Source="ic_delete.png" HeightRequest="40" Padding="7" Command="{Binding DataContext.DeleteItemListCommand, Source={x:Reference SelectedListViewPage}}" CommandParameter="{Binding Id}" />
+                        </StackLayout>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <Label Text="Titre" />
+
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                    
+
+            </CollectionView>
+
+            <!-- Bouton pour créer un nouvel ShopItem. -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                <Entry mvx:Bi.nd="Text NewShopItemName" Placeholder="New Item Name" HorizontalOptions="FillAndExpand" />
+                <Button Text="Create a new item" Command="{Binding NewShopItemCommand}" HorizontalOptions="End" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</views:MvxContentPage>

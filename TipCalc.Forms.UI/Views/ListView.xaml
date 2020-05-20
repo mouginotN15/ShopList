@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:ListVM"
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+    xmlns:viewModels="clr-namespace:TipCalc.Core.ViewModels;assembly=TipCalc.Core"
+    x:Class="TipCalc.Forms.UI.Pages.ListView"
+    mvx:Bi.nd="Title PageTitle"
+    x:Name="ListViewPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_help.png" />
+    </ContentPage.ToolbarItems>
+
+
+    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="15">
+        <Label mvx:Bi.nd="Text Username" />
+
+        <!-- Affichage des ShopLists de l'utilisateur -->
+        <CollectionView ItemsSource="{Binding ListShopList}" SelectedItem="{Binding SelectedShopList}" SelectionChangedCommand="{Binding ClickedShopListCommand}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+
+                        <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <Button Text="Delete" Command="{Binding DataContext.DeleteShopListCommand, Source={x:Reference ListViewPage}}" CommandParameter="{Binding Id}" HorizontalOptions="End"/>
+                        
+                        
+                        <!-- Confirmation avec un double bouton a revoir. (Pour le moment il y a un bug qui fait que TOUT les boutons changes en meme temps. Et pas uniquement celui sur lequel on à cliqué.) -->
+                        <!-- <Button Text="Delete" IsVisible="{Binding DataContext.ButtonDeleteVisibility, Source={x:Reference ListViewPage}}" Command="{Binding DataContext.DeleteConfirmVisibilityCommand, Source={x:Reference ListViewPage}}" HorizontalOptions="End"/>
+                        <Button Text="Sur ?" IsVisible="{Binding DataContext.ButtonConfirmDeleteVisibility, Source={x:Reference ListViewPage}}" Command="{Binding DataContext.DeleteShopListCommand, Source={x:Reference ListViewPage}}" CommandParameter="{Binding Id}" HorizontalOptions="End" BackgroundColor="Red"/> -->
+                    </StackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Bouton pour créer une nouvelle ShopList. -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+            <Entry mvx:Bi.nd="Text NewListName" Placeholder="New List Name" HorizontalOptions="FillAndExpand" />
+            <Button Text="Create a new list" Command="{Binding NewListCommand}" HorizontalOptions="End" />
+        </StackLayout>
+    </StackLayout>
+    
+
+
+</views:MvxContentPage>

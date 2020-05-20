@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:EditItemVM"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+    xmlns:viewModels="clr-namespace:TipCalc.Core.ViewModels;assembly=TipCalc.Core"
+    x:Class="TipCalc.Forms.UI.Views.EditItemView"
+    mvx:Bi.nd="Title PageTitle"
+    x:Name="EditItemViewPage">
+
+    <ContentPage.Content>
+
+
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="15">
+
+            <!-- Affichage et edition du nom. -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                <Label Text="Item Name :" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Entry mvx:Bi.nd="Text NewShopItem.Name" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            </StackLayout>
+
+            <!-- Affichage et edition du prix. -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                <Label Text="Item Price : " HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Entry mvx:Bi.nd="Text NewShopItem.Price" Keyboard="Numeric" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            </StackLayout>
+
+
+            <!-- Balise de texte pour définir le début de la zone de traitement des tags -->
+            <Label Text="TAGS" FontSize="Medium" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
+
+            <!-- Affichage des Tags du ShopItem sous forme de liste. -->
+            <CollectionView ItemsSource="{Binding DisplayTags}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding .}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            <ImageButton BackgroundColor="Transparent" Source="ic_delete.png" HeightRequest="40" Padding="7" Command="{Binding DataContext.DeleteTagCommand, Source={x:Reference EditItemViewPage}}" CommandParameter="{Binding .}" />
+                        </StackLayout>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <!-- Bouton pour créer un nouveau tag sur se shopitem à partir d'un tag existant ou un tout nouveau. -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Column="0" HeightRequest="100" >
+                    <Entry mvx:Bi.nd="Text NewTagTexte" Placeholder="New Tag" HorizontalOptions="FillAndExpand" />
+                    <ImageButton BackgroundColor="Transparent" Source="iconAddTag.png" Padding="7" Command="{Binding NewTagCommand}" HorizontalOptions="End" />
+                </StackLayout>
+
+                <Picker Title="Existing Tags" SelectedIndex="{Binding PickerSelectedItem}" ItemsSource="{Binding PickerSourceListAllTags}"  Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+            </Grid>
+
+
+
+            <!-- Bouton pour Valider les modifications -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                <Button Text="Confirm" Command="{Binding ConfirmEditShopItemCommand}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</views:MvxContentPage>
