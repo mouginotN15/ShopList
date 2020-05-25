@@ -85,10 +85,19 @@ namespace TipCalc.Core.ViewModels
             ListShopItemSort = SourceListShopItem.Connect().Sort(ComparerAtoZ, resort: propertyChanged, comparerChanged: observableComparer).AsObservableList();
             ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
 
+            // Si il y a un changement du paramètre "checked" sur une ligne, modifie la valeur en BDD
+            await SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Do(x => CheckOrUncheckItem(x.Sender));
 
             // Premier tri de la liste par ordre alaphabetique
             SelectedSort = "0";
             this.WhenPropertyChanged(x => x.SelectedSort).Subscribe((x) => SortChanged());
+        }
+
+
+        public async Task CheckOrUncheckItem(ShopItem shopItem)
+        {
+            Console.WriteLine(shopItem.Id + " Statue = " + shopItem.Checked);
+            // await Api.ShopItemsClient.ShopItemsPutAsync(shopItem);
         }
 
         /// <summary>
@@ -101,7 +110,7 @@ namespace TipCalc.Core.ViewModels
 
             try
             {
-                SourceListShopItem.AddRange(await Api.ShopItemsClient.GetShopItemsAsync(_shopList.Id));
+                SourceListShopItem.AddRange(await Api.ShopItemsClient.ListAsync(_shopList.Id));
             }
             catch (Exception e)
             {
@@ -186,7 +195,7 @@ namespace TipCalc.Core.ViewModels
             try
             {
                 // création de la nouvelle liste et reset le champ NewListName et met à jour la liste avec la fonction LoadLists
-                ShopItem shopItem = await Api.ShopItemsClient.PostShopItemAsync(_shopList.Id, NewShopItemName, 00, "");
+                ShopItem shopItem = await Api.ShopItemsClient.ShopItemsPostAsync(_shopList.Id, NewShopItemName, 00, "");
                 NewShopItemName = "";
                 SourceListShopItem.Add(shopItem);
             }
@@ -206,7 +215,7 @@ namespace TipCalc.Core.ViewModels
             {
                 // Suppression de l'item via id
                 SourceListShopItem.Remove(SourceListShopItem.Items.Where(i => i.Id == id).FirstOrDefault());
-                await Api.ShopItemsClient.DeleteShopItemAsync(id);
+                await Api.ShopItemsClient.ShopItemsDeleteAsync(id);
             }
             catch (Exception e)
             {

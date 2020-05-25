@@ -79,7 +79,7 @@ namespace TipCalc.Core.ViewModels
             try
             {
                 // On test si l'username est déjà pris. Si non, on créer le compte.
-                User user = await Api.UsersClient.PostUserAsync(Username, Password);
+                User user = await Api.UsersClient.UsersPostAsync(Username, Password);
             }
             catch (Exception e)
             {

@@ -59,7 +59,7 @@ namespace TipCalc.Core.ViewModels
 
             try
             {
-                ObservableCollection<ShopList> convert = new ObservableCollection<ShopList>((await Api.ShopListsClient.GetUserShopListsAsync(_user.Id)).ToList());
+                ObservableCollection<ShopList> convert = new ObservableCollection<ShopList>((await Api.ShopListsClient.UserAsync(_user.Id)).ToList());
                 ListShopList = convert;
             }
             catch (Exception e)
@@ -132,7 +132,7 @@ namespace TipCalc.Core.ViewModels
             try
             {
                 // création de la nouvelle liste et reset le champ NewListName et met à jour la liste avec la fonction LoadLists
-                await Api.ShopListsClient.PostShopListAsync(_user.Id, NewListName);
+                await Api.ShopListsClient.ShopListsPostAsync(_user.Id, NewListName);
                 NewListName = "";
                 await LoadLists();
             }
@@ -147,7 +147,7 @@ namespace TipCalc.Core.ViewModels
             try
             {
                 ListShopList.Remove(ListShopList.Where(i => i.Id == id).First());
-                await Api.ShopListsClient.DeleteShopListAsync(id);
+                await Api.ShopListsClient.ShopListsDeleteAsync(id);
             }
             catch (Exception e)
             {
