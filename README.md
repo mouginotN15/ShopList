@@ -10,13 +10,12 @@ Fonctionnalité actuel :
 - Création/Edition d'objet dans une liste avec nom/prix/tag. (ShopItem)
 
 
-Futur améliorations
-Amélioration mineurs : 
+Futur Amélioration mineurs : 
 - Ajouter un système d'ajoute de tag en fonction des tags déjà présent dans la ShopList. (Faire une nouvelle requete API.)
 - Partage de ShopList en ajoutant / supprimant les droits d'une autre personne.
 - Ajout du bouton pour passer en mode Course.
 
 
-Amélioration majeurs : 
+Futur Amélioration majeurs : 
 - Génération de la liste temporaire du mode Course.
 - Génération des factures grace au mode Course.
