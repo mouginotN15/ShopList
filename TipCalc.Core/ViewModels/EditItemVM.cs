@@ -128,7 +128,7 @@ namespace TipCalc.Core.ViewModels
             try
             {
                 OldShopItem.Tags = NewShopItem.Tags;
-                await Api.ShopItemsClient.ShopItemsPutAsync(NewShopItem);
+                await Api.ShopItemsClient.ShopItemsPutAsync(NewShopItem.Id, NewShopItem);
                 await _navigationService.Close(this);
             }
             catch (Exception e)
