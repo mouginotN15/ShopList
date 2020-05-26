@@ -8,9 +8,12 @@ namespace TipCalc.Core.Services
     // Permet de faire les appels API.
     public class API
     {
-        public UsersClient UsersClient;
-        public ShopListsClient ShopListsClient;
+        public BillDetailsClient BillDetailsClient;
+        public BillsClient BillsClient;
         public ShopItemsClient ShopItemsClient;
+        public ShopListsClient ShopListsClient;
+        public UsersClient UsersClient;
+
 
         public API()
         {
@@ -19,9 +22,14 @@ namespace TipCalc.Core.Services
             handler.ServerCertificateCustomValidationCallback = delegate { return true; };
 
             HttpClient client = new HttpClient(handler);
-            UsersClient = new UsersClient(client);
-            ShopListsClient = new ShopListsClient(client);
+
+            BillDetailsClient = new BillDetailsClient(client);
+            BillsClient = new BillsClient(client);
             ShopItemsClient = new ShopItemsClient(client);
+            ShopListsClient = new ShopListsClient(client);
+            UsersClient = new UsersClient(client);
+
+
         }
     }
 }
