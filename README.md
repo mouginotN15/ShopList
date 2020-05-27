@@ -13,7 +13,6 @@ Fonctionnalité actuel :
 Futur Amélioration mineurs : 
 - Ajouter un système d'ajoute de tag en fonction des tags déjà présent dans la ShopList. (Faire une nouvelle requete API.)
 - Partage de ShopList en ajoutant / supprimant les droits d'une autre personne.
-- Ajout du bouton pour passer en mode Course.
 - Tri par prix.
 
 
