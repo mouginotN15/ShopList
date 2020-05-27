@@ -39,7 +39,7 @@ namespace TipCalc.Core.ViewModels
         SortExpressionComparer<ShopItem> ComparerAtoZwithTags;
         SortExpressionComparer<ShopItem> ComparerZtoAwithTags;
         BehaviorSubject<SortExpressionComparer<ShopItem>> observableComparer;
-        
+
 
         public SelectedListVM(IMvxNavigationService navigationService)
         {
@@ -74,19 +74,20 @@ namespace TipCalc.Core.ViewModels
             // ComparerAtoZwithTags
             // ComparerZtoAwithTags
 
-            observableComparer = new BehaviorSubject<SortExpressionComparer<ShopItem>>(ComparerAtoZ);      
+            observableComparer = new BehaviorSubject<SortExpressionComparer<ShopItem>>(ComparerAtoZ);
 
-            // Charge les shopItems de la shoplist dans SourceListShopItem
+            // Charge les shopItems de la shoplist dans SourceListShopItem et dans OldSourceListShopItem
             SourceListShopItem = new SourceList<ShopItem>();
+            OldSourceListShopItem = new List<ShopItem>();
             await LoadItems();
 
-
+            // Système de NotifiePropertyChange
             var propertyChanged = SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Select(_ => Unit.Default);
             ListShopItemSort = SourceListShopItem.Connect().Sort(ComparerAtoZ, resort: propertyChanged, comparerChanged: observableComparer).AsObservableList();
             ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
 
             // Si il y a un changement du paramètre "checked" sur une ligne, modifie la valeur en BDD
-            await SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Do(x => CheckOrUncheckItem(x.Sender));
+            SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Do(x => CheckOrUncheckItem(x.Sender)).Subscribe();
 
             // Premier tri de la liste par ordre alaphabetique
             SelectedSort = "0";
@@ -94,10 +95,28 @@ namespace TipCalc.Core.ViewModels
         }
 
 
+        /// <summary>
+        /// Fonction qui enregistre en BDD les modifications apporté à la selection des items de la liste. (checkbox)
+        /// </summary>
+        /// <param name="shopItem"></param>
+        /// <returns></returns>
         public async Task CheckOrUncheckItem(ShopItem shopItem)
         {
-            Console.WriteLine(shopItem.Id + " Statue = " + shopItem.Checked);
-            // await Api.ShopItemsClient.ShopItemsPutAsync(shopItem);
+            var compared = OldSourceListShopItem.Where(x => x.Id == shopItem.Id).FirstOrDefault();
+
+            if (shopItem.Checked == compared.Checked)
+                return;
+    
+            try
+            {
+                await Api.ShopItemsClient.ShopItemsPutAsync(shopItem.Id, shopItem);
+                compared.Checked = shopItem.Checked;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception = " + e);
+                throw;
+            }
         }
 
         /// <summary>
@@ -107,10 +126,15 @@ namespace TipCalc.Core.ViewModels
         public async Task LoadItems()
         {
             SourceListShopItem.Clear();
+            OldSourceListShopItem.Clear();
+            Console.WriteLine(" LOAD ---------------------------------------------------------------------- ");
 
             try
-            {
-                SourceListShopItem.AddRange(await Api.ShopItemsClient.ListAsync(_shopList.Id));
+            {   
+                List<ShopItem> Temp = new List<ShopItem>(await Api.ShopItemsClient.ListAsync(_shopList.Id));
+
+                OldSourceListShopItem.AddRange(Temp.Select(x => new ShopItem(x)));
+                SourceListShopItem.AddRange(Temp);
             }
             catch (Exception e)
             {
@@ -187,6 +211,17 @@ namespace TipCalc.Core.ViewModels
         }
 
 
+        private ICommand _usersRightGestionCommand;
+        public ICommand UsersRightGestionCommand
+        {
+            get
+            {
+                _usersRightGestionCommand = _usersRightGestionCommand ?? new MvxCommand(UsersRightGestion);
+                return _usersRightGestionCommand;
+            }
+        }
+
+
         /// <summary>
         /// Ajoute un nouvel item à la BDD
         /// </summary>
@@ -238,6 +273,22 @@ namespace TipCalc.Core.ViewModels
                 throw e;
             }
         }
+        
+        /// <summary>
+        /// Navigue sur une nouvelle page pour pouvoir gérer les utilisateurs qui ont des droits d'accès à cette liste.
+        /// </summary>
+        /// <param name="id"></param>
+        public async void UsersRightGestion()
+        {
+            try
+            {
+                await _navigationService.Navigate<ListRightGestionVM, ShopList>(_shopList);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         #endregion
 
 
@@ -255,6 +306,7 @@ namespace TipCalc.Core.ViewModels
             }
         }
 
+
         /// <summary>
         /// List des différents types de tri qui existe.
         /// </summary>
@@ -267,6 +319,7 @@ namespace TipCalc.Core.ViewModels
                 SetProperty(ref _listSort, value);
             }
         }
+
 
         /// <summary>
         /// Systeme de tri actuellement selectionné
@@ -281,6 +334,21 @@ namespace TipCalc.Core.ViewModels
             }
         }
 
+
+        /// <summary>
+        /// Old Data List de tout les shopItems
+        /// </summary>
+        private List<ShopItem> _oldSourceListShopItem;
+        public List<ShopItem> OldSourceListShopItem
+        {
+            get => _oldSourceListShopItem;
+            set
+            {
+                SetProperty(ref _oldSourceListShopItem, value);
+            }
+        }
+
+
         /// <summary>
         /// Data List de tout les shopItems
         /// </summary>
@@ -293,6 +361,7 @@ namespace TipCalc.Core.ViewModels
                 SetProperty(ref _sourceListShopItem, value);
             }
         }
+
 
         /// <summary>
         /// Est utilisé pour le tri et la détection des checkboxs (il n'y a pas de récupération d'id possible car pas de command avec les checkboxs)
@@ -307,11 +376,13 @@ namespace TipCalc.Core.ViewModels
             }
         }
 
+
         /// <summary>
         /// Affichage des ShopItems. Liste bind à la collectionView.
         /// </summary>
         private ReadOnlyObservableCollection<ShopItem> _displayedListShopItemSort;
         public ReadOnlyObservableCollection<ShopItem> DisplayedListShopItemSort => _displayedListShopItemSort;
+
 
         /// <summary>
         /// Entry pour récupérer le nom du nouvel item qui va être crée.

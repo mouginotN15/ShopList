@@ -71,6 +71,8 @@ namespace TipCalc.Core.ViewModels
 
                 // On test si l'utilisateur existe sur la bdd et si oui la validation du mdp
                 user = await Api.UsersClient.LoginAsync(Username, Password);
+
+                Console.WriteLine(user.Id + " " + user.Name);
             }
             catch (Exception e)
             {

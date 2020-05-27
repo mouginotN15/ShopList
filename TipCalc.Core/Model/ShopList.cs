@@ -38,6 +38,16 @@ namespace TipCalc.Core.Model
         }
 
         /// <summary>
+        /// Tout les Id des utilisateurs qui on le droit d'accès à cette liste.
+        /// </summary>
+        private string _userIdRight;
+        public string UserIdRight
+        {
+            get => _userIdRight;
+            set => SetProperty(ref _userIdRight, value);
+        }
+
+        /// <summary>
         /// Date de création de la liste par un utilisateur.
         /// </summary>
         private DateTime _creationDate;

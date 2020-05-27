@@ -10,8 +10,9 @@
     x:Name="SelectedListViewPage">
 
     <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_cart.png" />
         <ToolbarItem IconImageSource="ic_help.png" />
-        <ToolbarItem IconImageSource="iconAddRight.png" />
+        <ToolbarItem IconImageSource="iconAddRight.png" Command="{Binding UsersRightGestionCommand}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
