@@ -8,13 +8,13 @@ Fonctionnalité actuel :
 - Compte (Login / Register)
 - Création et ouverture de liste. (ShopList)
 - Création/Edition d'objet dans une liste avec nom/prix/tag. (ShopItem)
+- Partage de ShopLists (via le système de droits)
 
 
 Futur Amélioration mineurs : 
 - Ajouter un système d'ajoute de tag en fonction des tags déjà présent dans la ShopList. (Faire une nouvelle requete API.)
-- Partage de ShopList en ajoutant / supprimant les droits d'une autre personne.
 - Tri par prix.
-
+- Tri par tag.
 
 
 Futur Amélioration majeurs : 
