@@ -1640,12 +1640,12 @@ namespace TipCalc
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname);
+        System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname, string userIdRight);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname, string userIdRight, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -1815,15 +1815,15 @@ namespace TipCalc
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname)
+        public System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname, string userIdRight)
         {
-            return ShopListsPutAsync(listId, listname, System.Threading.CancellationToken.None);
+            return ShopListsPutAsync(listId, listname, userIdRight, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ShopListsPutAsync(int? listId, string listname, string userIdRight, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/ShopLists?");
@@ -1834,6 +1834,10 @@ namespace TipCalc
             if (listname != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("listname") + "=").Append(System.Uri.EscapeDataString(ConvertToString(listname, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (userIdRight != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("userIdRight") + "=").Append(System.Uri.EscapeDataString(ConvertToString(userIdRight, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
 
