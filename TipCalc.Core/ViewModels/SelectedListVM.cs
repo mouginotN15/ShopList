@@ -87,7 +87,9 @@ namespace TipCalc.Core.ViewModels
             ListShopItemSort.Connect().Bind(out _displayedListShopItemSort).Do((x) => { this.RaisePropertyChanged(nameof(DisplayedListShopItemSort)); }).Subscribe();
 
             // Si il y a un changement du paramètre "checked" sur une ligne, modifie la valeur en BDD
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             SourceListShopItem.Connect().WhenPropertyChanged(x => x.Checked).Do(x => CheckOrUncheckItem(x.Sender)).Subscribe();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
             // Premier tri de la liste par ordre alaphabetique
             SelectedSort = "0";
@@ -106,7 +108,7 @@ namespace TipCalc.Core.ViewModels
 
             if (shopItem.Checked == compared.Checked)
                 return;
-    
+
             try
             {
                 await Api.ShopItemsClient.ShopItemsPutAsync(shopItem.Id, shopItem);
@@ -130,7 +132,7 @@ namespace TipCalc.Core.ViewModels
             Console.WriteLine(" LOAD ---------------------------------------------------------------------- ");
 
             try
-            {   
+            {
                 List<ShopItem> Temp = new List<ShopItem>(await Api.ShopItemsClient.ListAsync(_shopList.Id));
 
                 OldSourceListShopItem.AddRange(Temp.Select(x => new ShopItem(x)));
@@ -273,7 +275,7 @@ namespace TipCalc.Core.ViewModels
                 throw e;
             }
         }
-        
+
         /// <summary>
         /// Navigue sur une nouvelle page pour pouvoir gérer les utilisateurs qui ont des droits d'accès à cette liste.
         /// </summary>

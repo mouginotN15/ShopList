@@ -164,10 +164,7 @@ namespace TipCalc.Core.ViewModels
             
             try
             {
-                ShopList ListToOpen = new ShopList { Id = SelectedShopList.Id, CreationDate = SelectedShopList.CreationDate, Deleted = SelectedShopList.Deleted, Name = SelectedShopList.Name, OwnerId = SelectedShopList.OwnerId };
-                SelectedShopList = null;
-
-                Tuple<User, ShopList> ProfilAndShopList = new Tuple<User, ShopList>(_user, ListToOpen);
+                Tuple<User, ShopList> ProfilAndShopList = new Tuple<User, ShopList>(_user, SelectedShopList);
                 await _navigationService.Navigate<SelectedListVM, Tuple<User, ShopList>>(ProfilAndShopList);
             }
             catch (Exception e)

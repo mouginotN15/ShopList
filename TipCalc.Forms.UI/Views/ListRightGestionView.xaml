@@ -23,11 +23,20 @@
                 <Label Text="{Binding ConfirmOrErrorEntry}" TextColor="{Binding ConfirmOrErrorEntryColorText}" />
             </StackLayout>
 
-            
-            <CollectionView>
-                
-                
-                
+
+            <CollectionView ItemsSource="{Binding UsersWithRight}" IsGrouped="False" >
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
+                            <ImageButton BackgroundColor="Transparent" Grid.Column="3" Source="ic_delete.png" HeightRequest="40" Padding="7" Command="{Binding DataContext.DeleteUserRightCommand, Source={x:Reference ListRightGestionViewPage}}" CommandParameter="{Binding Name}" />
+                        </StackLayout>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
             </CollectionView>
 
         </StackLayout>
