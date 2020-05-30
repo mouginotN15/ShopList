@@ -17,8 +17,10 @@
 
                 <StackLayout Orientation="Horizontal">
                     <Entry Text="{Binding NewUserName}" Placeholder="Username" HorizontalOptions="FillAndExpand" />
-                    <Button Text="ADD" Command="{Binding }" HorizontalOptions="End" />
+                    <Button Text="ADD" Command="{Binding NewUserRightCommand}" HorizontalOptions="End" />
                 </StackLayout>
+
+                <Label Text="{Binding ConfirmOrErrorEntry}" TextColor="{Binding ConfirmOrErrorEntryColorText}" />
             </StackLayout>
 
             

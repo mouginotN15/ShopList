@@ -1,4 +1,5 @@
 ﻿using DynamicData;
+using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using System;
@@ -8,6 +9,7 @@ using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using TipCalc.Core.Model;
 using TipCalc.Core.Services;
 
@@ -42,6 +44,11 @@ namespace TipCalc.Core.ViewModels
             if (_shopList.UserIdRight == null)
                 _shopList.UserIdRight = "";
 
+        }
+
+
+        public async Task LoadSharedPeopleList()
+        {
 
             if (_shopList.UserIdRight.Length != 0)
             {
@@ -54,10 +61,39 @@ namespace TipCalc.Core.ViewModels
                     // UsersWithRight.Add(Api.UsersClient.);
                 }
             }
+
+        }
+
+        #region Commands
+
+        private ICommand _newUserRightCommand;
+        public ICommand NewUserRightCommand
+        {
+            get
+            {
+                _newUserRightCommand = _newUserRightCommand ?? new MvxCommand(NewUserRight);
+                return _newUserRightCommand;
+            }
         }
 
 
-        #region Commands
+        /// <summary>
+        /// Ajoute un nouvel utilisateur à la shoplist
+        /// </summary>
+        public async void NewUserRight()
+        {
+            try
+            {
+                // NewUserName
+                // ConfirmOrErrorEntry
+                // ConfirmOrErrorEntryColorText
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         #endregion
 
 
@@ -100,6 +136,34 @@ namespace TipCalc.Core.ViewModels
             set
             {
                 SetProperty(ref _newUserName, value);
+            }
+        }
+
+
+        /// <summary>
+        /// Texte qui confirme l'ajout d'une personne sur la liste ou une erreur si la personne n'existe pas.
+        /// </summary>
+        private string _confirmOrErrorEntry;
+        public string ConfirmOrErrorEntry
+        {
+            get => _confirmOrErrorEntry;
+            set
+            {
+                SetProperty(ref _confirmOrErrorEntry, value);
+            }
+        }
+
+
+        /// <summary>
+        /// Couleur rouge si c'est une erreur, couleur verte si c'est une validation
+        /// </summary>
+        private string _confirmOrErrorEntryColorText;
+        public string ConfirmOrErrorEntryColorText
+        {
+            get => _confirmOrErrorEntryColorText;
+            set
+            {
+                SetProperty(ref _confirmOrErrorEntryColorText, value);
             }
         }
         #endregion
